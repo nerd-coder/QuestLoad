@@ -10,10 +10,12 @@
     "dev": "bun run --cwd apps/web dev",
     "build": "bun run --cwd apps/web build",
     "preview": "bun run --cwd apps/web preview",
-    "check": "bun run lint && bun run typecheck && bun run build",
+    "dev:brand": "bun run --cwd apps/brand dev",
+    "build:brand": "bun run --cwd apps/brand build",
+    "check": "bun run lint && bun run typecheck && bun run build && bun run build:brand",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && bun run --cwd apps/brand typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
