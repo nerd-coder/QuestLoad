@@ -1,2 +1,7 @@
 export { connectQuest, disconnectQuest, watchUsbDisconnect } from './actions'
-export { type DeviceState, type DeviceStatus, deviceStore } from './store'
+export { DeviceStatus } from './device-status'
+export {
+  type DeviceState,
+  type DeviceStatus as Status,
+  deviceStore,
+} from './store'

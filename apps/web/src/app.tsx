@@ -1,51 +1,46 @@
+import { Tabs, TabsContent } from '@questload/ui/components/tabs'
 import { useStore } from '@tanstack/react-store'
+import { ExtractorView } from './features/extractor'
 import { InstallerView } from './features/install'
-import { shellStore, showView } from './features/shell'
+import {
+  PageIntro,
+  SOURCE_URL,
+  shellStore,
+  showView,
+  TopBar,
+  type View,
+} from './features/shell'
 
 export function App() {
   const view = useStore(shellStore, (state) => state.view)
   return (
-    <main className="wrap">
-      <h1>QuestLoad</h1>
-      <p className="sub">
-        Install apps on Meta Quest devices. Developer mode required.{' '}
-        <b>By Frizzle.</b>
-      </p>
-      <nav className="top-nav" aria-label="Primary">
-        <div className="top-nav__tabs">
-          <button
-            className="top-nav__item"
-            type="button"
-            role="tab"
-            aria-selected={view === 'installer'}
-            onClick={() => showView('installer')}
-          >
-            Installer
-          </button>
-          <button
-            className="top-nav__item"
-            type="button"
-            role="tab"
-            aria-selected={view === 'extractor'}
-            onClick={() => showView('extractor')}
-          >
-            Extractor
-          </button>
-        </div>
-        <a
-          className="top-nav__github"
-          href="https://github.com/FrizzleM/QuestLoad"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-      </nav>
-      {view === 'extractor' ? (
-        <section className="extractor-view">COMING SOON</section>
-      ) : (
-        <InstallerView />
-      )}
-    </main>
+    <Tabs
+      value={view}
+      onValueChange={(value) => showView(value as View)}
+      className="block"
+    >
+      <div aria-hidden="true" className="environment fixed inset-0 -z-10" />
+      <TopBar />
+      <main className="mx-auto max-w-3xl px-4 pt-28 pb-12 sm:px-6 sm:pt-32">
+        <TabsContent value="installer">
+          <PageIntro
+            title="Install apps on your Quest"
+            lede="Plug your headset into this computer, choose an APK, and QuestLoad installs it over USB. Your Quest needs developer mode turned on."
+          />
+          <InstallerView />
+        </TabsContent>
+        <TabsContent value="extractor">
+          <PageIntro
+            title="Copy apps off your Quest"
+            lede="Keep a backup of what's on your headset, or move an app to another Quest."
+          />
+          <ExtractorView sourceUrl={SOURCE_URL} />
+        </TabsContent>
+      </main>
+      <footer className="mx-auto max-w-3xl px-4 pb-10 text-sm text-muted-foreground sm:px-6">
+        QuestLoad by Frizzle. Not affiliated with Meta; Meta Quest is a
+        trademark of Meta Platforms, Inc.
+      </footer>
+    </Tabs>
   )
 }

@@ -35,10 +35,10 @@ export async function loadGames(queryClient: QueryClient) {
     log(
       'info',
       Array.isArray(games)
-        ? `Loaded ${games.length} games from remote source.`
-        : 'Games source loaded.'
+        ? `Loaded ${games.length} games from the games source`
+        : 'Loaded the games source'
     )
   } catch (error) {
-    log('error', errorText(error))
+    log('warning', `Games source unavailable: ${errorText(error)}`)
   }
 }

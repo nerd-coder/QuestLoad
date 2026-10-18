@@ -4,10 +4,10 @@ export type Tone = 'info' | 'success' | 'warning' | 'error'
 export type ActivityEntry = { id: number; tone: Tone; text: string }
 
 export const activityStore = new Store<{ entries: ActivityEntry[] }>({
-  entries: [{ id: 0, tone: 'info', text: 'Ready.' }],
+  entries: [],
 })
 
-let nextId = 1
+let nextId = 0
 
 export function log(tone: Tone, text: string) {
   activityStore.setState((state) => ({
