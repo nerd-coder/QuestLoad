@@ -57,11 +57,9 @@ After the install finishes, go to **Apps → Unknown Sources** on your headset a
 ## Future updates
 - Ability to export games from the headset
 
-## Remote games source config
+## Games source
 
-QuestLoad now loads the game source from a local JSON config file at `apps/web/public/games-source.json`.
-
-Update these values whenever you need:
+QuestLoad loads its games list from a source with this shape:
 
 ```json
 {
@@ -70,7 +68,14 @@ Update these values whenever you need:
 }
 ```
 
-The frontend sends the password in the `x-api-password` header when requesting the games URL.
+It requests `url` with the password in the `x-api-password` header.
+
+In the app, click **Games source** in the top bar and paste either the config JSON or a link to a
+JSON file holding it. QuestLoad checks the source by loading its games, then saves it in the
+browser's local storage for later visits. **Remove** forgets it.
+
+With nothing saved, the app uses `apps/web/public/games-source.json`, the site's default. A link
+or `url` must use `https://`, and the server must allow requests from the QuestLoad site (CORS).
 
 ## For offline usage
 
