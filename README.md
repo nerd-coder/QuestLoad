@@ -59,7 +59,7 @@ After a successful install, go to **Apps → Unknown Sources** on your headset a
 
 ## Remote games source config
 
-QuestLoad now loads the game source from a local JSON config file at `quest-web-installer/public/games-source.json`.
+QuestLoad now loads the game source from a local JSON config file at `apps/web/public/games-source.json`.
 
 Update these values whenever you need:
 
@@ -74,12 +74,18 @@ The frontend sends the password in the `x-api-password` header when requesting t
 
 ## For offline usage
 
-The web installer is built with **Vite**. To run it locally:
+The web installer is built with **Vite + React**, using Bun, TanStack Query, and TanStack Store. To run it locally:
 
 ```bash
 git clone https://github.com/FrizzleM/QuestLoad.git
 cd QuestLoad
-npm install
-npm run dev 
-npm run build    
-npm run preview
+bun install
+bun run dev
+bun run build
+bun run preview
+
+## Cloudflare Workers deployment
+
+The app is deployed as Cloudflare Worker static assets by `.github/workflows/deploy-cloudflare.yml`.
+
+Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets. Pushes to `main` build and deploy `apps/web/dist` with `apps/web/wrangler.jsonc`.
