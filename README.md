@@ -17,7 +17,7 @@ This fork is maintained by Toàn. QuestLoad was created by [Frizzle](https://git
 
 </div>
 
-<img width="1030" height="528" alt="Screenshot 2026-02-10 alle 17 50 13" src="https://files.catbox.moe/scqv99.png" />
+<img width="1030" alt="QuestLoad installing a game bundle on a connected Quest 3" src="docs/screenshot.png" />
 
 ## Requirements
 
