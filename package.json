@@ -12,13 +12,15 @@
     "preview": "bun run --cwd apps/web preview",
     "dev:brand": "bun run --cwd apps/brand dev",
     "build:brand": "bun run --cwd apps/brand build",
+    "credentials": "bun scripts/credentials/main.ts",
     "check": "bun run lint && bun run typecheck && bun run build && bun run build:brand",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "typecheck": "tsc --noEmit && bun run --cwd apps/brand typecheck"
+    "typecheck": "tsc --noEmit && tsc --noEmit -p scripts && bun run --cwd apps/brand typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
+    "@types/bun": "^1.4.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@types/web": "^0.0.256",

@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
+  "$schema": "../../node_modules/wrangler/config-schema.json",
   "name": "questload",
   "compatibility_date": "2026-10-18",
   "assets": {
@@ -7,5 +7,9 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
+  // questload.nerdcoder.dev is the only public URL; Cloudflare creates its
+  // DNS record and certificate on deploy.
+  "routes": [{ "pattern": "questload.nerdcoder.dev", "custom_domain": true }],
+  "workers_dev": false,
   "observability": { "enabled": true, "head_sampling_rate": 1 }
 }

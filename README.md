@@ -7,7 +7,7 @@
 This fork is maintained by Toàn. QuestLoad was created by [Frizzle](https://github.com/FrizzleM/QuestLoad).
 
 <br/>
-  <a href="https://frizzlem.github.io/QuestLoad/">
+  <a href="https://questload.nerdcoder.dev">
     <img alt="Launch QuestLoad" src="https://img.shields.io/badge/Launch-Open%20App-6cb6ff?style=for-the-badge">
   </a>
   
@@ -30,7 +30,7 @@ This fork is maintained by Toàn. QuestLoad was created by [Frizzle](https://git
 Follow these steps to sideload an app:
 
 ### 1. Launch QuestLoad
-Open [frizzlem.github.io/QuestLoad](https://frizzlem.github.io/QuestLoad/).
+Open [questload.nerdcoder.dev](https://questload.nerdcoder.dev).
 
 ### 2. Connect your Quest
 Plug your Quest into the computer and click **Connect Quest**. Pick the headset in your browser's device list, then put on the headset and select **Allow** on the USB debugging prompt. QuestLoad shows the headset model once it's connected.
@@ -89,6 +89,17 @@ bun run preview
 
 ## Cloudflare Workers deployment
 
-The app is deployed as Cloudflare Worker static assets by `.github/workflows/deploy.yml`.
+Pushes to `main` deploy `apps/web` as Cloudflare Worker static assets at
+[questload.nerdcoder.dev](https://questload.nerdcoder.dev), through `.github/workflows/deploy.yml`.
+The `nerdcoder.dev` zone must be on the same Cloudflare account as the Worker; Cloudflare creates
+the DNS record and certificate on the first deploy.
 
-Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets. Pushes to `main` build and deploy `apps/web/dist` with `apps/web/wrangler.jsonc`.
+The workflow needs two GitHub Actions secrets, `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`.
+Set them with:
+
+```bash
+bun run credentials
+```
+
+It reads your `gh` and `wrangler` logins, explains what the token must be allowed to do, links to a
+pre-filled token form, checks the token against Cloudflare, and stores both secrets on this repository.
