@@ -4,13 +4,15 @@
 
 **QuestLoad** is a browser‑based sideloader for Meta Quest headsets. It lets you install custom APKs on the Meta Quest directly from your web browser. Developer mode must be enabled on your headset.
 
+This fork is maintained by Toàn. QuestLoad was created by [Frizzle](https://github.com/FrizzleM/QuestLoad).
+
 <br/>
   <a href="https://frizzlem.github.io/QuestLoad/">
     <img alt="Launch QuestLoad" src="https://img.shields.io/badge/Launch-Open%20App-6cb6ff?style=for-the-badge">
   </a>
   
-  <a href="https://github.com/FrizzleM/QuestLoad/issues">
-    <img alt="Issues" src="https://img.shields.io/github/issues/FrizzleM/QuestLoad?style=for-the-badge&color=ef4444">
+  <a href="https://github.com/nerd-coder/QuestLoad/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/nerd-coder/QuestLoad?style=for-the-badge&color=ef4444">
   </a>
 
 </div>
@@ -75,7 +77,7 @@ The frontend sends the password in the `x-api-password` header when requesting t
 The web installer is built with **Vite + React**, using Bun, TanStack Query, and TanStack Store. To run it locally:
 
 ```bash
-git clone https://github.com/FrizzleM/QuestLoad.git
+git clone https://github.com/nerd-coder/QuestLoad.git
 cd QuestLoad
 bun install
 bun run dev

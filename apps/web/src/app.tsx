@@ -8,6 +8,7 @@ import {
   shellStore,
   showView,
   TopBar,
+  UPSTREAM_URL,
   type View,
 } from './features/shell'
 
@@ -39,7 +40,16 @@ export function App() {
       </main>
       <footer className="mx-auto grid max-w-3xl gap-2 px-4 pb-10 text-sm text-muted-foreground sm:px-6">
         <p>
-          QuestLoad by Frizzle.{' '}
+          Maintained by Toàn. Forked from{' '}
+          <a
+            href={UPSTREAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-sm text-link underline underline-offset-4"
+          >
+            QuestLoad by Frizzle
+          </a>
+          .{' '}
           <a
             href={SOURCE_URL}
             target="_blank"

@@ -4,9 +4,8 @@ import { TabsList, TabsTrigger } from '@questload/ui/components/tabs'
 import { useStore } from '@tanstack/react-store'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { GitHubMark } from './github-mark'
+import { SOURCE_URL } from './links'
 import { shellStore, toggleTheme } from './store'
-
-export const SOURCE_URL = 'https://github.com/FrizzleM/QuestLoad'
 
 /** Floating glass bar. Sits inside the app's Tabs root so it can switch views. */
 export function TopBar() {

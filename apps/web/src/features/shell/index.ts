@@ -1,3 +1,4 @@
+export { SOURCE_URL, UPSTREAM_URL } from './links'
 export { PageIntro } from './page-intro'
 export {
   shellStore,
@@ -6,4 +7,4 @@ export {
   toggleTheme,
   type View,
 } from './store'
-export { SOURCE_URL, TopBar } from './top-bar'
+export { TopBar } from './top-bar'
