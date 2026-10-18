@@ -1,8 +1,8 @@
+import { Button } from '@questload/ui/components/button'
+import { Logo } from '@questload/ui/components/logo'
 import { useStore } from '@tanstack/react-store'
 import { MoonIcon, SunIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { brandStore, toggleTheme } from '@/store'
-import { Logo } from './logo'
 
 export function TopBar() {
   const theme = useStore(brandStore, (state) => state.theme)

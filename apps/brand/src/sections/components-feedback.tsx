@@ -1,19 +1,23 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from '@questload/ui/components/alert'
+import { Badge } from '@questload/ui/components/badge'
+import {
+  Progress,
+  ProgressLabel,
+  ProgressValue,
+} from '@questload/ui/components/progress'
+import { Skeleton } from '@questload/ui/components/skeleton'
+import { cn } from '@questload/ui/lib/utils'
+import {
   CircleAlertIcon,
   InfoIcon,
   TriangleAlertIcon,
   UsbIcon,
 } from 'lucide-react'
 import { Panel } from '@/components/brand/section'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Badge } from '@/components/ui/badge'
-import {
-  Progress,
-  ProgressLabel,
-  ProgressValue,
-} from '@/components/ui/progress'
-import { Skeleton } from '@/components/ui/skeleton'
-import { cn } from '@/lib/utils'
 
 export function FeedbackPanel() {
   return (

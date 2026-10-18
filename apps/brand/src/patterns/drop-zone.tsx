@@ -1,5 +1,5 @@
+import { Button } from '@questload/ui/components/button'
 import { FileDownIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 // Empty state for step 2: an invitation, with the folder option one level down.
 export function DropZone() {

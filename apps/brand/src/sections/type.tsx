@@ -1,5 +1,5 @@
+import { cn } from '@questload/ui/lib/utils'
 import { Panel, Section } from '@/components/brand/section'
-import { cn } from '@/lib/utils'
 
 const scale = [
   {

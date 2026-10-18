@@ -1,5 +1,4 @@
-import { EllipsisIcon, PlayIcon, RotateCwIcon, Trash2Icon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@questload/ui/components/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@questload/ui/components/dropdown-menu'
+import { EllipsisIcon, PlayIcon, RotateCwIcon, Trash2Icon } from 'lucide-react'
 
 const apps = [
   {

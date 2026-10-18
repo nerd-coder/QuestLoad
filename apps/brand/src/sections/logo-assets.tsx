@@ -1,7 +1,7 @@
+import { LogoMark } from '@questload/ui/components/logo'
+import { cn } from '@questload/ui/lib/utils'
 import { CheckIcon, XIcon } from 'lucide-react'
-import { LogoMark } from '@/components/brand/logo'
 import { Panel } from '@/components/brand/section'
-import { cn } from '@/lib/utils'
 
 const icons = [
   {

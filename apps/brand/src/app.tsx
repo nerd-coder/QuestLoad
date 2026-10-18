@@ -1,6 +1,6 @@
+import { TooltipProvider } from '@questload/ui/components/tooltip'
 import { Dock } from '@/components/brand/dock'
 import { TopBar } from '@/components/brand/top-bar'
-import { TooltipProvider } from '@/components/ui/tooltip'
 import { ColorSection } from '@/sections/color'
 import { ComponentsSection } from '@/sections/components'
 import { Hero } from '@/sections/hero'

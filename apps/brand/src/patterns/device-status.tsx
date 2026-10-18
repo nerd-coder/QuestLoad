@@ -1,6 +1,6 @@
+import { Badge } from '@questload/ui/components/badge'
+import { Button } from '@questload/ui/components/button'
 import { CheckIcon, PlugIcon, UsbIcon } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 
 const states = [
   {

@@ -9,15 +9,18 @@ pattern below.
 
 ## Where things live
 
+The shared pieces live in `packages/ui` (`@questload/ui`) so every app can use them; this app
+is the live preview and the logo exporter.
+
 | Path | What |
 |---|---|
-| `src/styles/theme.css` | Every token: semantic colors per mode, type scale, radius, depth, easing |
-| `src/styles/index.css` | Tailwind entry, base layer, and the `environment`, `glass`, `lift`, `spawn` utilities |
-| `src/components/ui/` | shadcn/ui (base-nova, Base UI), restyled to the rules below |
+| `packages/ui/src/theme.css` | Every token: semantic colors per mode, type scale, radius, depth, easing |
+| `packages/ui/src/styles.css` | Tailwind entry, base layer, and the `environment`, `glass`, `lift`, `spawn` utilities. Apps import `@questload/ui/styles.css` |
+| `packages/ui/src/components/` | shadcn/ui (base-nova, Base UI) restyled to the rules below, plus `logo.tsx` |
+| `packages/ui/components.json` | shadcn config: style `base-nova`, Lucide icons, `@questload/ui/*` aliases |
 | `src/patterns/` | QuestLoad compositions: device status, drop zone, installer, library |
 | `src/sections/` | The preview page |
 | `scripts/logo/` | `bun run logo`: exports every logo, icon and favicon file |
-| `components.json` | shadcn config: style `base-nova`, Lucide icons, `@/` aliases to `src/` |
 
 ## Principles
 
@@ -34,7 +37,7 @@ pattern below.
 
 The mark is the Quest 3 visor with its three front sensors, fading left to right (100, 65, 35%
 white) like a load in progress. It is original: it references the hardware, never Meta's ∞ logo
-or the Meta Quest wordmark. Geometry lives in `src/lib/logo.ts`; `bun run logo` regenerates every
+or the Meta Quest wordmark. Geometry lives in `packages/ui/src/lib/logo.ts`; `bun run logo` regenerates every
 file below from it (needs `rsvg-convert` and `magick` on PATH).
 
 | File (in `public/`) | Use |

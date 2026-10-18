@@ -6,7 +6,7 @@ import {
   NIGHT,
   PILL_OPACITY,
   TILE,
-} from '../../src/lib/logo'
+} from '@questload/ui/lib/logo'
 import type { Outline } from './wordmark'
 
 export type Tone = 'color' | 'white' | 'ink'

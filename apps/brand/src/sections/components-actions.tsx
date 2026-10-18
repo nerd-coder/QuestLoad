@@ -1,3 +1,5 @@
+import { Button } from '@questload/ui/components/button'
+import { LogoLoader } from '@questload/ui/components/logo'
 import {
   DownloadIcon,
   FolderOpenIcon,
@@ -6,9 +8,7 @@ import {
   Trash2Icon,
   UnplugIcon,
 } from 'lucide-react'
-import { LogoLoader } from '@/components/brand/logo'
 import { Panel } from '@/components/brand/section'
-import { Button } from '@/components/ui/button'
 
 export function ActionsPanel() {
   return (

@@ -1,6 +1,6 @@
+import { Button } from '@questload/ui/components/button'
+import { Checkbox } from '@questload/ui/components/checkbox'
 import { UsbIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
 
 export function Hero() {
   return (

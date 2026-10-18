@@ -1,5 +1,5 @@
+import { cn } from '@questload/ui/lib/utils'
 import type { ReactNode } from 'react'
-import { cn } from '@/lib/utils'
 
 export function Section({
   id,

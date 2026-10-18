@@ -1,6 +1,4 @@
-import { EllipsisIcon, PlayIcon, RotateCwIcon, Trash2Icon } from 'lucide-react'
-import { Panel } from '@/components/brand/section'
-import { Button } from '@/components/ui/button'
+import { Button } from '@questload/ui/components/button'
 import {
   Dialog,
   DialogClose,
@@ -10,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
+} from '@questload/ui/components/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,13 +16,20 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+} from '@questload/ui/components/dropdown-menu'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@questload/ui/components/tabs'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
+} from '@questload/ui/components/tooltip'
+import { EllipsisIcon, PlayIcon, RotateCwIcon, Trash2Icon } from 'lucide-react'
+import { Panel } from '@/components/brand/section'
 
 export function OverlaysPanel() {
   return (

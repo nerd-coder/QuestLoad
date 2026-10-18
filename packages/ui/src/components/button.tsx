@@ -1,6 +1,6 @@
 import { Button as ButtonPrimitive } from '@base-ui/react/button'
+import { cn } from '@questload/ui/lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
 
 // Horizon OS: every action is a pill, every pill lifts on hover.
 const buttonVariants = cva(

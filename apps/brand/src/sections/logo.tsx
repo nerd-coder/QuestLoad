@@ -1,8 +1,8 @@
+import { LogoLoader, LogoMark } from '@questload/ui/components/logo'
+import { MARK } from '@questload/ui/lib/logo'
+import { cn } from '@questload/ui/lib/utils'
 import { DownloadIcon } from 'lucide-react'
-import { LogoLoader, LogoMark } from '@/components/brand/logo'
 import { Panel, Section } from '@/components/brand/section'
-import { MARK } from '@/lib/logo'
-import { cn } from '@/lib/utils'
 import { LogoAssets } from './logo-assets'
 
 const lockups = [

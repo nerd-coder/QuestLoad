@@ -1,15 +1,15 @@
-import { CheckIcon, FolderIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
-import { LogoLoader } from '@/components/brand/logo'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Badge } from '@questload/ui/components/badge'
+import { Button } from '@questload/ui/components/button'
+import { LogoLoader } from '@questload/ui/components/logo'
 import {
   Progress,
   ProgressLabel,
   ProgressValue,
-} from '@/components/ui/progress'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { cn } from '@/lib/utils'
+} from '@questload/ui/components/progress'
+import { ScrollArea } from '@questload/ui/components/scroll-area'
+import { cn } from '@questload/ui/lib/utils'
+import { CheckIcon, FolderIcon } from 'lucide-react'
+import type { ReactNode } from 'react'
 
 const log = [
   ['ok', 'Connected to Quest 3'],

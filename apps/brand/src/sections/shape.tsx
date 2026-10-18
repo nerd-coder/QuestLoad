@@ -1,7 +1,7 @@
+import { Button } from '@questload/ui/components/button'
+import { cn } from '@questload/ui/lib/utils'
 import { DownloadIcon } from 'lucide-react'
 import { Panel, Section } from '@/components/brand/section'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 const layers = [
   {

@@ -1,3 +1,4 @@
+import { cn } from '@questload/ui/lib/utils'
 import { Panel, Section } from '@/components/brand/section'
 import {
   brandSwatches,
@@ -5,7 +6,6 @@ import {
   semanticTokens,
   signalSwatches,
 } from '@/lib/palette'
-import { cn } from '@/lib/utils'
 
 export function ColorSection() {
   return (

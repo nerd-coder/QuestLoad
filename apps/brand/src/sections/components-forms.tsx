@@ -1,17 +1,20 @@
-import { Panel } from '@/components/brand/section'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Kbd } from '@/components/ui/kbd'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Checkbox } from '@questload/ui/components/checkbox'
+import { Input } from '@questload/ui/components/input'
+import { Kbd } from '@questload/ui/components/kbd'
+import { Label } from '@questload/ui/components/label'
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@questload/ui/components/radio-group'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Switch } from '@/components/ui/switch'
+} from '@questload/ui/components/select'
+import { Switch } from '@questload/ui/components/switch'
+import { Panel } from '@/components/brand/section'
 
 const headsets = [
   { label: 'Quest 3', value: 'quest-3' },

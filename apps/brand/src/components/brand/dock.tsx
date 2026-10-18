@@ -1,4 +1,9 @@
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@questload/ui/components/tooltip'
+import {
   BlocksIcon,
   DownloadIcon,
   MessageSquareTextIcon,
@@ -7,11 +12,6 @@ import {
   StampIcon,
   TypeIcon,
 } from 'lucide-react'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
 
 const items = [
   { href: '#logo', label: 'Logo', Icon: StampIcon },

@@ -1,99 +1,13 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/figtree";
-@import "@fontsource-variable/geist-mono";
-@import "./theme.css";
-
-@custom-variant dark (&:is(.dark *));
+@import "@questload/ui/styles.css";
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   html {
-    color-scheme: light;
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
-  }
-  html.dark {
-    color-scheme: dark;
-  }
-  body {
-    @apply bg-background font-sans text-foreground antialiased;
-  }
-  :focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
-  }
-}
-
-/* The scene behind every panel: sky, a lit horizon, a floor. */
-@utility environment {
-  background:
-    radial-gradient(120% 38% at 50% 64%, var(--env-glow), transparent 70%),
-    linear-gradient(
-      180deg,
-      var(--env-zenith) 0%,
-      var(--env-horizon) 62%,
-      var(--env-floor) 62.2%,
-      var(--env-floor) 100%
-    );
-}
-
-/* Floating glass. Panels are the only surface content sits on. */
-@utility glass {
-  background-color: var(--card);
-  backdrop-filter: blur(40px) saturate(1.4);
-  -webkit-backdrop-filter: blur(40px) saturate(1.4);
-}
-
-/* Pressables lift toward you on hover, like a ray-cast target in Horizon OS. */
-@utility lift {
-  transition-property: scale, background-color, color, box-shadow, filter;
-  transition-duration: 160ms;
-  transition-timing-function: var(--ease-spawn);
-  &:hover:not(:disabled, [data-disabled]) {
-    scale: 1.03;
-  }
-  &:active:not(:disabled, [data-disabled]) {
-    scale: 0.97;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    &:hover:not(:disabled, [data-disabled]),
-    &:active:not(:disabled, [data-disabled]) {
-      scale: 1;
-    }
-  }
-}
-
-/* LogoLoader: the mark's sensors light left to right. */
-@keyframes sensor {
-  0%,
-  100% {
-    fill-opacity: 0.3;
-  }
-  35% {
-    fill-opacity: 1;
-  }
-}
-
-/* The one orchestrated moment: a window spawning in front of you. */
-@keyframes spawn {
-  from {
-    opacity: 0;
-    scale: 0.94;
-    filter: blur(6px);
-  }
-}
-@utility spawn {
-  animation: spawn 520ms var(--ease-spawn) both;
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
   }
 }

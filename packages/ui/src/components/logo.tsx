@@ -1,5 +1,5 @@
-import { BLUE, MARK, markPills } from '@/lib/logo'
-import { cn } from '@/lib/utils'
+import { BLUE, MARK, markPills } from '@questload/ui/lib/logo'
+import { cn } from '@questload/ui/lib/utils'
 
 /** The Quest 3 visor and its three sensors, fading like a load in progress. */
 export function LogoMark({ className }: { className?: string }) {
