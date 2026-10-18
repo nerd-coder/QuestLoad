@@ -55,7 +55,7 @@ export function ActionsPanel() {
           </Button>
         </Row>
         <Row label="States">
-          <Button disabled>
+          <Button disabled aria-busy>
             <LogoLoader height="0.85em" label={null} />
             Installing
           </Button>

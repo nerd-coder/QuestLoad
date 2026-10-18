@@ -116,6 +116,8 @@ Shadows carry a 1px inner top highlight, so glass reads as an edge-lit sheet. Ta
 ## Interaction
 
 - Targets are 44px by default (`h-11`), 36px at `sm`.
+- A button that is working is `disabled` plus `aria-busy`: it keeps full color and shows
+  `LogoLoader`, so it reads as busy rather than unavailable.
 - Focus is a 2px solid `--ring` outline, offset 2px: white in dark mode, Meta Blue in light.
   Under Tailwind v4, `outline-none` sets the outline style to none, so a focus utility needs
   `focus-visible:outline-solid` alongside `focus-visible:outline-2`.

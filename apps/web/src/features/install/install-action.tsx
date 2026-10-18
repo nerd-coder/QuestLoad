@@ -64,6 +64,7 @@ export function InstallAction({ connected }: { connected: boolean }) {
         <Button
           size="lg"
           disabled={!connected || !chosen || running}
+          aria-busy={running || undefined}
           onClick={() => void installSelection()}
         >
           {running ? (

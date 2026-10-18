@@ -90,7 +90,7 @@ export function Installer() {
       </div>
       <div className="flex flex-wrap justify-end gap-3 border-t bg-muted px-6 py-4 md:px-8">
         <Button variant="outline">Cancel install</Button>
-        <Button disabled>
+        <Button disabled aria-busy>
           <LogoLoader height="0.85em" label={null} />
           Installing
         </Button>

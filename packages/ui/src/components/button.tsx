@@ -2,9 +2,10 @@ import { Button as ButtonPrimitive } from '@base-ui/react/button'
 import { cn } from '@questload/ui/lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
 
-// Horizon OS: every action is a pill, every pill lifts on hover.
+// Horizon OS: every action is a pill, every pill lifts on hover. A disabled
+// button that is working (aria-busy) keeps full color: it isn't unavailable.
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding font-semibold whitespace-nowrap outline-none select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-40 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1.15em]",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding font-semibold whitespace-nowrap outline-none select-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-40 aria-busy:opacity-100 aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1.15em]",
   {
     variants: {
       variant: {
