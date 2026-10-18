@@ -1,6 +1,8 @@
+import { isWebUsbSupported } from '@questload/adb-client'
 import { Store } from '@tanstack/store'
 
 export type DeviceStatus =
+  | 'unsupported'
   | 'disconnected'
   | 'connecting'
   | 'authorizing'
@@ -9,7 +11,8 @@ export type DeviceStatus =
 export type DeviceState = { status: DeviceStatus; model: string | null }
 
 export const deviceStore = new Store<DeviceState>({
-  status: 'disconnected',
+  // Without WebUSB (Firefox, Safari, plain http) there is nothing to connect.
+  status: isWebUsbSupported() ? 'disconnected' : 'unsupported',
   model: null,
 })
 

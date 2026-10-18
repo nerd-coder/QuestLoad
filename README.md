@@ -31,28 +31,26 @@ Follow these steps to sideload an app:
 Open [frizzlem.github.io/QuestLoad](https://frizzlem.github.io/QuestLoad/).
 
 ### 2. Connect your Quest
-Click **Connect Quest** in Step 1. Put on your headset and accept the USB debugging prompt when it appears. The log will confirm the device model on successful connection.
+Plug your Quest into the computer and click **Connect Quest**. Pick the headset in your browser's device list, then put on the headset and select **Allow** on the USB debugging prompt. QuestLoad shows the headset model once it's connected.
 
-### 3. Select what to install
-In Step 2, choose an **APK** file or a **bundle folder**:
-- **APK** – click the “Choose an .apk” box and select a single `.apk` file. Drag‑and‑drop is also supported.
-- **Bundle (BETA)** – click the “Choose a game bundle folder (BETA)” box and select either:
-  - a folder with one APK at the root and one package-named OBB folder, such as:
+### 3. Choose what to install
+Under **Choose what to install**, pick one. You can do this before or after connecting.
+- **APK**: drop an `.apk` file on the **Drop an APK here** tile, or click the tile to choose one.
+- **Bundle folder**: for games with OBB files, click **Choose a bundle folder** and select a folder with one APK at its top level and an OBB folder named after the package. QuestLoad checks the layout as soon as you pick it:
 
-    ```text
-    bundle/
-    ├── com.CMGames.IntoTheRadius.apk
-    └── com.CMGames.IntoTheRadius/
-        ├── main.161562.com.CMGames.IntoTheRadius.obb
-        └── patch.161562.com.CMGames.IntoTheRadius.obb
-    ```
-
+  ```text
+  bundle/
+  ├── com.CMGames.IntoTheRadius.apk
+  └── com.CMGames.IntoTheRadius/
+      ├── main.161562.com.CMGames.IntoTheRadius.obb
+      └── patch.161562.com.CMGames.IntoTheRadius.obb
+  ```
 
 ### 4. Install
-Click **Install APK** for single APKs or **Install Bundle (APK + OBB)** for bundles. The log will show progress and confirm success when finished.
+Click **Install APK** or **Install bundle**. The progress bar and the **Activity** log show each step.
 
 ### 5. Launch the app on your Quest
-After a successful install, go to **Apps → Unknown Sources** on your headset and launch your newly installed app. Once done, you can click **Disconnect** in QuestLoad.
+After the install finishes, go to **Apps → Unknown Sources** on your headset and launch the app. When you're done, click **Disconnect** in QuestLoad.
 
 ## Future updates
 - Ability to export games from the headset
@@ -83,9 +81,12 @@ bun install
 bun run dev
 bun run build
 bun run preview
+```
+
+`bun run dev:brand` serves the design system preview (`apps/brand`). The shared tokens and components live in `packages/ui`.
 
 ## Cloudflare Workers deployment
 
-The app is deployed as Cloudflare Worker static assets by `.github/workflows/deploy-cloudflare.yml`.
+The app is deployed as Cloudflare Worker static assets by `.github/workflows/deploy.yml`.
 
 Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets. Pushes to `main` build and deploy `apps/web/dist` with `apps/web/wrangler.jsonc`.

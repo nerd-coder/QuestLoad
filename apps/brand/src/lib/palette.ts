@@ -11,7 +11,7 @@ export const brandSwatches: Swatch[] = [
   {
     name: 'Meta Blue',
     hex: '#0866FF',
-    role: 'Primary actions, progress, the logo. As text, light mode only.',
+    role: 'Primary actions, progress, the logo. Text uses --link: #0559DE in light mode, Beam in dark.',
     contrast: '4.8:1 with white',
     ink: 'light',
   },

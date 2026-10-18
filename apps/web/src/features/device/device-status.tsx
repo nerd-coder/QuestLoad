@@ -1,6 +1,7 @@
 import { Badge } from '@questload/ui/components/badge'
 import { Button } from '@questload/ui/components/button'
 import { LogoLoader } from '@questload/ui/components/logo'
+import { cn } from '@questload/ui/lib/utils'
 import { useStore } from '@tanstack/react-store'
 import { CheckIcon, PlugIcon, UsbIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
@@ -11,6 +12,12 @@ type View = { title: string; detail: string; badge: ReactNode | null }
 
 function describe(status: Status, model: string | null): View {
   switch (status) {
+    case 'unsupported':
+      return {
+        title: "This browser can't reach USB devices",
+        detail: 'Open QuestLoad in Chrome or Edge to connect your Quest.',
+        badge: null,
+      }
     case 'disconnected':
       return {
         title: 'No headset connected',
@@ -59,7 +66,12 @@ export function DeviceStatus({ locked }: { locked: boolean }) {
 
   return (
     <div className="flex flex-wrap items-center gap-4 rounded-xl bg-muted p-4 ring-1 ring-border">
-      <span className="grid size-11 shrink-0 place-items-center rounded-full bg-secondary">
+      <span
+        className={cn(
+          'grid size-11 shrink-0 place-items-center rounded-full bg-secondary',
+          status === 'unsupported' && 'bg-destructive/12 text-destructive'
+        )}
+      >
         {waiting ? (
           <LogoLoader height="0.9rem" label={null} />
         ) : (

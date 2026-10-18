@@ -37,9 +37,22 @@ export function App() {
           <ExtractorView sourceUrl={SOURCE_URL} />
         </TabsContent>
       </main>
-      <footer className="mx-auto max-w-3xl px-4 pb-10 text-sm text-muted-foreground sm:px-6">
-        QuestLoad by Frizzle. Not affiliated with Meta; Meta Quest is a
-        trademark of Meta Platforms, Inc.
+      <footer className="mx-auto grid max-w-3xl gap-2 px-4 pb-10 text-sm text-muted-foreground sm:px-6">
+        <p>
+          QuestLoad by Frizzle.{' '}
+          <a
+            href={SOURCE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-sm text-link underline underline-offset-4"
+          >
+            Source on GitHub
+          </a>
+        </p>
+        <p>
+          Not affiliated with Meta. Meta Quest is a trademark of Meta Platforms,
+          Inc.
+        </p>
       </footer>
     </Tabs>
   )

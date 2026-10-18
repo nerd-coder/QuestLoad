@@ -20,6 +20,15 @@
     <meta property="og:image" content="/social.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>QuestLoad</title>
+    <script>
+      // Matches the theme store's saved choice before first paint.
+      if (localStorage.getItem('questload-theme') === 'light') {
+        document.documentElement.classList.remove('dark')
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', '#f1f4f7')
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

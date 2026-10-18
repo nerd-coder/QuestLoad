@@ -33,7 +33,8 @@
   --border: rgb(28 43 51 / 0.12);
   --input: rgb(28 43 51 / 0.18);
   --ring: #0866ff;
-  --link: #0866ff;
+  /* Meta Blue is 4.4:1 on Wash; one step deeper passes on every light surface. */
+  --link: #0559de;
   --selected: #1c2b33;
   --selected-foreground: #ffffff;
 

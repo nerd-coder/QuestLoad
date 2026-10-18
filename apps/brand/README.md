@@ -62,7 +62,8 @@ file below from it (needs `rsvg-convert` and `magick` on PATH).
 
 | Name | Hex | Role |
 |---|---|---|
-| Meta Blue | `#0866FF` | Primary actions, progress, logo. White text on it is 4.8:1. As text, light mode only |
+| Meta Blue | `#0866FF` | Primary actions, progress, logo. White text on it is 4.8:1. Never text: it is 4.4:1 on Wash |
+| Link | `#0559DE` | `--link` in light mode: 5.4:1 on Wash, 6.0:1 on white |
 | Beam | `#5AA0FF` | Links and blue text on dark glass (6.2:1 on Panel) |
 | Horizon Night | `#0B1222` | Dark environment |
 | Panel | `#1A1F2B` | Dark glass at 78%, `backdrop-filter: blur(40px)` |
