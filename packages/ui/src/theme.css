@@ -62,7 +62,8 @@
   --muted-foreground: #a8b3c2;
   --accent: rgb(255 255 255 / 0.1);
   --accent-foreground: #ffffff;
-  --destructive: #ff6b7f;
+  /* Clears 4.5:1 on the lightest dark surface: a muted row inside a dialog. */
+  --destructive: #ff8394;
   --success: #4cc765;
   --warning: #f7b928;
   --border: rgb(255 255 255 / 0.1);

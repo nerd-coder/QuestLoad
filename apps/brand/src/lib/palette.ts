@@ -70,7 +70,7 @@ export const signalSwatches: Swatch[] = [
   {
     name: 'Fault',
     hex: '#E41E3F',
-    role: 'Failed install, lost connection. Text tone #FF6B7F in dark mode.',
+    role: 'Failed install, lost connection. Text tone #FF8394 in dark mode.',
     contrast: '4.6:1 on white',
     ink: 'light',
   },

@@ -1,10 +1,11 @@
-export { defaultSourceQuery, gamesQuery } from './queries'
-export { type GameSource, gameCount } from './source'
+export { gamesQuery } from './queries'
+export { gameCount, type SourceInput } from './source'
 export { GamesSourceDialog } from './source-dialog'
 export {
-  forgetSource,
+  addSource,
+  type GameSource,
   gamesStore,
-  type SavedSource,
-  saveSource,
+  removeSource,
   setSourceDialog,
+  setSourceEnabled,
 } from './store'

@@ -49,12 +49,12 @@ export function TopBar() {
               <GitHubMark className="size-5" />
             </a>
           </IconTip>
-          <IconTip label="Games source">
+          <IconTip label="Games sources">
             <Button
               variant="ghost"
               size="icon-sm"
               onClick={() => setSourceDialog(true)}
-              aria-label="Games source"
+              aria-label="Games sources"
             >
               <LibraryBigIcon />
             </Button>

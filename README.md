@@ -57,9 +57,14 @@ After the install finishes, go to **Apps → Unknown Sources** on your headset a
 ## Future updates
 - Ability to export games from the headset
 
-## Games source
+## Games sources
 
-QuestLoad loads its games list from a source with this shape:
+QuestLoad can load games lists from sources you add. A source is a URL and a password: QuestLoad
+requests the URL with the password in the `x-api-password` header and expects the games list as
+JSON. None are set up by default.
+
+Click **Games sources** in the top bar, then **Add source**. Enter the URL and password, or click
+**Paste a JSON config** to fill them in from:
 
 ```json
 {
@@ -68,14 +73,10 @@ QuestLoad loads its games list from a source with this shape:
 }
 ```
 
-It requests `url` with the password in the `x-api-password` header.
-
-In the app, click **Games source** in the top bar and paste either the config JSON or a link to a
-JSON file holding it. QuestLoad checks the source by loading its games, then saves it in the
-browser's local storage for later visits. **Remove** forgets it.
-
-With nothing saved, the app uses `apps/web/public/games-source.json`, the site's default. A link
-or `url` must use `https://`, and the server must allow requests from the QuestLoad site (CORS).
+QuestLoad checks a new source by loading its games before adding it. Each source in the list has a
+switch to turn it off without forgetting it, and a button to remove it. Sources are saved in the
+browser's local storage. The URL must use `https://`, and the server must allow requests from the
+QuestLoad site (CORS).
 
 ## For offline usage
 

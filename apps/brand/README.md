@@ -71,7 +71,7 @@ file below from it (needs `rsvg-convert` and `magick` on PATH).
 | Wash | `#F1F4F7` | Light environment; panels on it are white glass |
 | Connected | `#31A24C` | Text tone `#4CC765` dark, `#237A3A` light |
 | Waiting | `#F7B928` | Text tone `#F7B928` dark, `#8F6400` light |
-| Fault | `#E41E3F` | Text tone `#FF6B7F` dark, `#E41E3F` light |
+| Fault | `#E41E3F` | Text tone `#FF8394` dark, `#E41E3F` light |
 
 Components read semantic tokens only (`--primary`, `--card`, `--link`, `--selected`,
 `--success`, `--warning`, `--destructive`, …). Every text pairing is WCAG AA or better.

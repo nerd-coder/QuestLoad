@@ -1,95 +1,63 @@
-// A games source is { url, password }: QuestLoad requests `url` with the
-// password in the x-api-password header. Users paste the config itself, or a
-// link to a JSON file holding it.
+// A games source is a URL and a password: QuestLoad requests the URL with the
+// password in the x-api-password header and expects the games list as JSON.
 
-export type GameSource = { url: string; password: string }
+export type SourceInput = { url: string; password: string }
 
-/** A config that parsed but whose games request failed; it can still be saved. */
+/** A source that parsed but whose games request failed; it can still be added. */
 export class UncheckedSource extends Error {
   constructor(
     message: string,
-    readonly source: GameSource,
-    readonly from: string | null
+    readonly source: SourceInput
   ) {
     super(message)
   }
 }
 
-// The app is served over https; an http link would be blocked as mixed content.
+// The app is served over https; an http URL would be blocked as mixed content.
 const allowsHttp = () => location.protocol === 'http:'
 
-function toLink(value: string, what: string) {
+/** Checks the URL and returns the source with the URL normalized. */
+export function validateSource({ url, password }: SourceInput): SourceInput {
   let link: URL
   try {
-    link = new URL(value)
+    link = new URL(url.trim())
   } catch {
-    throw new Error(`${what} must be a full link, starting with https://.`)
+    throw new Error('Enter the full URL, starting with https://.')
   }
   const httpOk = link.protocol === 'http:' && allowsHttp()
   if (link.protocol !== 'https:' && !httpOk) {
-    throw new Error(`${what} must start with https://.`)
+    throw new Error('The URL must start with https://.')
   }
-  return link
+  return { url: link.href, password }
 }
 
-/** Validates the schema. Extra fields are ignored. */
-export function parseSource(value: unknown): GameSource {
-  const config = value as Partial<Record<'url' | 'password', unknown>> | null
+/** Reads a pasted JSON config into URL and password. Extra fields are ignored. */
+export function parseConfig(text: string): SourceInput {
+  let json: unknown
+  try {
+    json = JSON.parse(text.trim())
+  } catch {
+    throw new Error(
+      "That isn't valid JSON. Check for a missing quote or comma."
+    )
+  }
+  const config = json as Partial<Record<'url' | 'password', unknown>> | null
   if (
     !config ||
     typeof config !== 'object' ||
     typeof config.url !== 'string' ||
     typeof config.password !== 'string'
   ) {
-    throw new Error('The config needs "url" and "password", both as text.')
+    throw new Error('The JSON needs "url" and "password", both as text.')
   }
-  return {
-    url: toLink(config.url, 'The "url"').href,
-    password: config.password,
-  }
+  return { url: config.url, password: config.password }
 }
 
 const unreachable = (link: URL) =>
-  `Couldn't reach ${link.host}. Check the link, and that the server allows requests from this site.`
-
-/** Reads pasted text: the config JSON itself, or a link that serves it. */
-export async function readSource(
-  text: string
-): Promise<{ source: GameSource; from: string | null }> {
-  const input = text.trim()
-  if (!input) throw new Error('Paste the config JSON, or a link to it.')
-  if (input.startsWith('{')) {
-    let json: unknown
-    try {
-      json = JSON.parse(input)
-    } catch {
-      throw new Error(
-        "That isn't valid JSON. Check for a missing quote or comma."
-      )
-    }
-    return { source: parseSource(json), from: null }
-  }
-  const link = toLink(input, 'A link')
-  let response: Response
-  try {
-    response = await fetch(link, { cache: 'no-store' })
-  } catch {
-    throw new Error(unreachable(link))
-  }
-  if (!response.ok) {
-    throw new Error(`${link.host} answered ${response.status} for that link.`)
-  }
-  let json: unknown
-  try {
-    json = await response.json()
-  } catch {
-    throw new Error("That link didn't return JSON.")
-  }
-  return { source: parseSource(json), from: link.href }
-}
+  `Couldn't reach ${link.host}. Check the URL, and that the server allows requests from this site.`
 
 /** The games list behind a source. */
-export async function fetchGames(source: GameSource): Promise<unknown> {
+export async function fetchGames(source: SourceInput): Promise<unknown> {
   const link = new URL(source.url)
   let response: Response
   try {
@@ -112,16 +80,23 @@ export async function fetchGames(source: GameSource): Promise<unknown> {
   }
 }
 
-/** Parses and then checks a source by loading its games. */
-export async function checkSource(text: string) {
-  const { source, from } = await readSource(text)
+/** Validates a source, then checks it by loading its games. */
+export async function checkSource(input: SourceInput) {
+  const source = validateSource(input)
   try {
-    return { source, from, games: await fetchGames(source) }
+    return { source, games: await fetchGames(source) }
   } catch (error) {
-    throw new UncheckedSource((error as Error).message, source, from)
+    throw new UncheckedSource((error as Error).message, source)
   }
 }
 
 export function gameCount(games: unknown) {
   return Array.isArray(games) ? games.length : null
+}
+
+/** Host and path, enough to tell sources apart in a list. */
+export function sourceLabel(url: string) {
+  const link = new URL(url)
+  const path = link.pathname === '/' ? '' : link.pathname
+  return `${link.host}${path}`
 }
